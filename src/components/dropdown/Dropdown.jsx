@@ -1,17 +1,24 @@
-import { eggGroups } from '../../lib/eggGroups.js';
-import { Select } from './styles.js'
+import { Select } from './styles.js';
 
-function Dropdown({ setEggGroup }) {
+function Dropdown({ state, listOfValues }) {
   return (
     <Select
-      onChange={(e) => setEggGroup(e.target.value)}
+      onChange={(e) =>
+        e.target.length > 2
+          ? state(e.target.selectedIndex - 1)
+          : state(e.target.selectedIndex)
+      }
       name='selectEggGroup'
       id='selectEggGroup'
     >
-      <option value={"Select Group"} key={"Select Group"}>
-        Select Group
-      </option>
-      {eggGroups.map((group) => (
+      {listOfValues.length === 15 ? (
+        <option value={'Select Group'} key={'Select Group'}>
+          Select Group
+        </option>
+      ) : (
+        ''
+      )}
+      {listOfValues.map((group) => (
         <option value={group} key={group}>
           {group}
         </option>

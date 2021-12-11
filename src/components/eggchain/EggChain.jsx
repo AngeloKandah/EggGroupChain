@@ -1,7 +1,8 @@
 import { getChain } from './chain-logic.js';
 
-function EggChain({ eggGroup1, eggGroup2 }) {
-  const g = getChain(eggGroup1, eggGroup2);
+function EggChain({ startEggGroup, finalEggGroup, genGraphs }) {
+  const chain = getChain(startEggGroup, finalEggGroup, genGraphs);
+  console.log(chain)
 
   return (
     <div>
