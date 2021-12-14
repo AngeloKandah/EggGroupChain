@@ -4,7 +4,7 @@ import { Dropdown } from './components/dropdown';
 import { EggChain, createGraph } from './components/eggchain';
 import { Header } from './components/header';
 import { EggGroupContainer, GenerationContainer } from './styles.js';
-import { eggGroups } from './lib/eggGroups.js';
+import { eggGroups, generations } from './lib/common.js';
 
 function App() {
   const [startEggGroup, setEggGroup1] = useState(-1);
@@ -19,10 +19,10 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      <GenerationContainer>
-        <Dropdown state={setGenToGraph} listOfValues={['GenVIII', 'GenIV']}/>
+      <GenerationContainer id='generationContainer'>
+        <Dropdown state={setGenToGraph} listOfValues={generations} />
       </GenerationContainer>
-      <EggGroupContainer id='dropdownContainer'>
+      <EggGroupContainer id='eggGroupContainer'>
         <Dropdown state={setEggGroup1} listOfValues={eggGroups} />
         <Dropdown state={setEggGroup2} listOfValues={eggGroups} />
       </EggGroupContainer>
@@ -30,6 +30,7 @@ function App() {
         startEggGroup={startEggGroup}
         finalEggGroup={finalEggGroup}
         genGraphs={genGraphs[genToGraph]}
+        generation={genToGraph}
       />
     </div>
   );
