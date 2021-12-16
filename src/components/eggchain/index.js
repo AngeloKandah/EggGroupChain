@@ -1,4 +1,4 @@
 import EggChain from './EggChain.jsx';
-import { createGraph } from './chain-logic.js';
+import SoloBox from './SoloBox.jsx';
 
-export { EggChain, createGraph };
+export { EggChain, SoloBox };

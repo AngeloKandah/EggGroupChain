@@ -54,6 +54,7 @@ const genVIIIGraph = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ]; */
 
+//0 index is GenVIII, 1 index is GenIV
 const matrices = [
   [
     [0, 1, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 0, 1, 0],

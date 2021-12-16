@@ -1,24 +1,27 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Dropdown } from './components/dropdown';
-import { EggChain, createGraph } from './components/eggchain';
+import { EggChain } from './components/eggchain';
 import { Header } from './components/header';
-import { EggGroupContainer, GenerationContainer } from './styles.js';
+import {
+  EggGroupContainer,
+  GenerationContainer,
+  ChainContainer,
+  EggRoutesContainer,
+  RightSidebar,
+  LeftSidebar,
+} from './styles.js';
+import { Sidebar } from './components/sidebar';
 import { eggGroups, generations } from './lib/common.js';
 
 function App() {
   const [startEggGroup, setEggGroup1] = useState(-1);
   const [finalEggGroup, setEggGroup2] = useState(-1);
-  const [genToGraph, setGenToGraph] = useState(0);
-  const [genGraphs, setGenGraphs] = useState([]);
-
-  useEffect(() => {
-    setGenGraphs([createGraph('GenVIII'), createGraph('GenIV')]);
-  }, []);
+  const [generation, setGenToGraph] = useState(0);
 
   return (
     <div className='App'>
-      <Header />
+      <Header title='Egg Chain Calculator' />
       <GenerationContainer id='generationContainer'>
         <Dropdown state={setGenToGraph} listOfValues={generations} />
       </GenerationContainer>
@@ -26,12 +29,21 @@ function App() {
         <Dropdown state={setEggGroup1} listOfValues={eggGroups} />
         <Dropdown state={setEggGroup2} listOfValues={eggGroups} />
       </EggGroupContainer>
-      <EggChain
-        startEggGroup={startEggGroup}
-        finalEggGroup={finalEggGroup}
-        genGraphs={genGraphs[genToGraph]}
-        generation={genToGraph}
-      />
+      <ChainContainer id='chainContainer'>
+        <LeftSidebar id='eggGroup1'>
+          <Sidebar group={startEggGroup} generation={generation} />
+        </LeftSidebar>
+        <EggRoutesContainer id='eggRoutes'>
+          <EggChain
+            startEggGroup={startEggGroup}
+            finalEggGroup={finalEggGroup}
+            generation={generation}
+          />
+        </EggRoutesContainer>
+        <RightSidebar id='eggGroup2'>
+          <Sidebar group={finalEggGroup} generation={generation} />
+        </RightSidebar>
+      </ChainContainer>
     </div>
   );
 }

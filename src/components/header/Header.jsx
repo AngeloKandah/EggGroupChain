@@ -1,9 +1,9 @@
 import { H1 } from './styles.js';
 
-function Header() {
+function Header({ title }) {
   return (
     <header>
-      <H1>Egg Chain Calculator</H1>
+      <H1>{title}</H1>
     </header>
   );
 }

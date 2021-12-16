@@ -1,32 +1,47 @@
-import { getChain } from './chain-logic.js';
 import ChainBox from './ChainBox.jsx';
-import SoloBox from './SoloBox.jsx';
+import {
+  LI,
+  UL,
+  RouteContainer,
+  RouteNumber,
+} from './styles.js';
+import { getPaths } from './chainLogic.js';
+import { v4 as uuidv4 } from 'uuid';
 
-function EggChain({ startEggGroup, finalEggGroup, genGraphs, generation }) {
+//Turn the solobox into sticky sidebars when chosen
+//
+
+function EggChain({ startEggGroup, finalEggGroup, generation }) {
   if (startEggGroup > -1 && finalEggGroup > -1) {
-    const chain = getChain(startEggGroup, finalEggGroup, genGraphs);
+    const allPaths = getPaths(startEggGroup, finalEggGroup, generation);
     return (
-      <ul id='eggChain'>
-        <li>
-          <SoloBox groupIndex={startEggGroup} generationIndex={generation} />
-        </li>
-        {chain.map((group, index) =>
-          index === (chain.length-1) ? (
-            ''
-          ) : (
-            <li key={group}>
-              <ChainBox
-                group1Index={group}
-                group2Index={chain[index+1]}
-                generationIndex={generation}
-              />
-            </li>
-          )
-        )}
-        <li>
-          <SoloBox groupIndex={finalEggGroup} generationIndex={generation} />
-        </li>
-      </ul>
+      <>
+        {allPaths.map((route, routeNumber) => {
+          return (
+            <RouteContainer key={uuidv4()} id='routeContainer'>
+              <RouteNumber>
+                <h1>{`Route ${routeNumber + 1}`}</h1>
+              </RouteNumber>
+              <UL>
+                {route.map((eggGroup, index) =>
+                  index === route.length - 1 ? (
+                    ''
+                  ) : (
+                    <LI key={uuidv4()}>
+                      <ChainBox
+                        group1Index={eggGroup}
+                        D
+                        group2Index={route[index + 1]}
+                        generationIndex={generation}
+                      />
+                    </LI>
+                  )
+                )}
+              </UL>
+            </RouteContainer>
+          );
+        })}
+      </>
     );
   }
   return '';
