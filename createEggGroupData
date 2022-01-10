@@ -1,0 +1,10 @@
+#!/bin/bash
+
+eggGroups=('SelectGroup' 'Monster' 'Water1' 'Bug' 'Flying' 'Field' 'Fairy' 'Grass' 'Human-like' 'Water3' 'Mineral' 'Amorphous' 'Water2' 'Ditto' 'Dragon' 'Undiscovered')
+
+url="https://pokeapi.co/api/v2/egg-group/"
+
+for group in ${!eggGroups[@]}; do
+        curl -o ./src/data/${eggGroups[$group]}.json $url$group
+        sleep 1
+done

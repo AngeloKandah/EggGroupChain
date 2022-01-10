@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const LI = styled.li`
   display: flex;
+  flex: 1 1 0;
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
