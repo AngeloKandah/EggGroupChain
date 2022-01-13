@@ -1,4 +1,4 @@
-import { Select } from './styles.js';
+import { Select } from '../../styles';
 
 function Dropdown({ state, listOfValues }) {
   return (

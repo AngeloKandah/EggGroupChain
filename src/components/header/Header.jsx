@@ -1,4 +1,4 @@
-import { H1 } from './styles.js';
+import { H1 } from '../../styles';
 
 function Header({ title }) {
   return (

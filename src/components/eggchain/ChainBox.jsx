@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getPokemonFromBothGroups } from './chainLogic';
+import { getPokemonFromBothGroups } from '../../lib/chainLogic.js';
 
 function ChainBox({ group1Index, group2Index, generationIndex }) {
   const [pokemon, setPokemon] = useState([]);

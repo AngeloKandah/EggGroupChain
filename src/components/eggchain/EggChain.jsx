@@ -1,15 +1,7 @@
 import ChainBox from './ChainBox.jsx';
-import {
-  LI,
-  UL,
-  RouteContainer,
-  RouteNumber,
-} from './styles.js';
-import { getPaths } from './chainLogic.js';
+import { LI, UL, RouteContainer, RouteNumber } from '../../styles';
+import { getPaths } from '../../lib/chainLogic.js';
 import { v4 as uuidv4 } from 'uuid';
-
-//Turn the solobox into sticky sidebars when chosen
-//
 
 function EggChain({ startEggGroup, finalEggGroup, generation }) {
   if (startEggGroup > -1 && finalEggGroup > -1) {

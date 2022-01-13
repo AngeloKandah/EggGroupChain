@@ -10,7 +10,7 @@ import {
   EggRoutesContainer,
   RightSidebar,
   LeftSidebar,
-} from './styles.js';
+} from './styles';
 import { Sidebar } from './components/sidebar';
 import { eggGroups, generations } from './lib/common.js';
 
