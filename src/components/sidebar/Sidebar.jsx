@@ -1,13 +1,13 @@
-import { UL } from '../../styles';
+import { SoloList } from '../../styles';
 import { SoloBox } from '../eggchain';
 
 //FIx this shit to not return empty string
 function Sidebar({ group, generation }) {
   if (group > -1) {
     return (
-      <UL>
+      <SoloList>
         <SoloBox groupIndex={group} generationIndex={generation} />
-      </UL>
+      </SoloList>
     );
   }
   return '';

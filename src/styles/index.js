@@ -4,13 +4,16 @@ import EggRoutesContainer from './eggRoutesContainer';
 import GenerationContainer from './generationContainer';
 import H1 from './h1.js';
 import LeftSidebar from './leftSidebar';
-import LI from './li.js';
+import ChainListItem from './chainListItem.js';
 import RightSidebar from './rightSidebar';
 import RouteContainer from './routeContainer';
 import RouteNumber from './routeNumber';
 import Select from './select.js';
-import UL from './ul.js';
+import ChainList from './chainList.js';
 import PokeImg from './pokeImg';
+import SoloList from './soloList.js'
+import SoloListItem from './soloListItem';
+import RouteChain from './routeChain';
 
 export {
   ChainContainer,
@@ -19,11 +22,14 @@ export {
   GenerationContainer,
   H1,
   LeftSidebar,
-  LI,
+  ChainListItem,
   RightSidebar,
   RouteContainer,
   RouteNumber,
   Select,
-  UL,
+  ChainList,
   PokeImg,
+  SoloList,
+  SoloListItem,
+  RouteChain,
 };

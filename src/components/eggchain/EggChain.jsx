@@ -1,5 +1,10 @@
 import ChainBox from './ChainBox.jsx';
-import { LI, UL, RouteContainer, RouteNumber } from '../../styles';
+import {
+  ChainList,
+  RouteContainer,
+  RouteNumber,
+  RouteChain,
+} from '../../styles';
 import { getPaths } from '../../lib/chainLogic.js';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,25 +16,25 @@ function EggChain({ startEggGroup, finalEggGroup, generation }) {
         {allPaths.map((route, routeNumber) => {
           return (
             <RouteContainer key={uuidv4()} id='routeContainer'>
-              <RouteNumber>
+              <RouteNumber id='routeNumber'>
                 <h1>{`Route ${routeNumber + 1}`}</h1>
               </RouteNumber>
-              <UL>
+              <RouteChain id='routeChain'>
                 {route.map((eggGroup, index) =>
                   index === route.length - 1 ? (
                     ''
                   ) : (
-                    <LI key={uuidv4()}>
+                    <ChainList id='chainList' key={uuidv4()}>
                       <ChainBox
                         group1Index={eggGroup}
                         D
                         group2Index={route[index + 1]}
                         generationIndex={generation}
                       />
-                    </LI>
+                    </ChainList>
                   )
                 )}
-              </UL>
+              </RouteChain>
             </RouteContainer>
           );
         })}

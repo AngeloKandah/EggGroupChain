@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 const RightSidebar = styled.div`
-  display: flex;
-  justify-content: center;
+  display: block;
   align-items: center;
   position: sticky;
-  top: 30vh;
-  align-self: start;
-  text-align: right;
-  margin-top: 10vh;
+  top: 0;
+  height: 100vh;
 `;
 
 export default RightSidebar;
