@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const LeftSidebar = styled.div`
+const SidebarContainer = styled.div`
   display: block;
   align-items: center;
   position: sticky;
@@ -8,4 +8,4 @@ const LeftSidebar = styled.div`
   height: 100vh;
 `;
 
-export default LeftSidebar;
+export default SidebarContainer;

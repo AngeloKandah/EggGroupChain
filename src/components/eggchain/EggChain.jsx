@@ -22,7 +22,7 @@ function EggChain({ startEggGroup, finalEggGroup, generation }) {
               <RouteChain id='routeChain'>
                 {route.map((eggGroup, index) =>
                   index === route.length - 1 ? (
-                    ''
+                    null
                   ) : (
                     <ChainList id='chainList' key={uuidv4()}>
                       <ChainBox

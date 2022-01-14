@@ -10,7 +10,7 @@ function Sidebar({ group, generation }) {
       </SoloList>
     );
   }
-  return '';
+  return null;
 }
 
 export default Sidebar;
