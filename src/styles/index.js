@@ -13,7 +13,7 @@ import PokeImg from './pokeImg';
 import SoloList from './soloList.js'
 import SoloListItem from './soloListItem';
 import RouteChain from './routeChain';
-import PokeFigure from './pokeFigure';
+import StyledFigure from './pokeFigure';
 
 export {
   ChainContainer,
@@ -31,5 +31,5 @@ export {
   SoloList,
   SoloListItem,
   RouteChain,
-  PokeFigure
+  StyledFigure
 };

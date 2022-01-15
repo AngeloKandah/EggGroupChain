@@ -10,6 +10,13 @@ const SoloList = styled.ul`
   max-height: 95vh;
   max-width: 25vw;
   overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+    background: #909090;
+  }
+  &::-webkit-scrollbar-thumb:horizontal {
+    background: grey;
+  }
 `;
 
 export default SoloList;

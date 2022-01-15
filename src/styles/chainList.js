@@ -6,9 +6,10 @@ const ChainList = styled.ul`
   padding-left: 0;
   padding-top: 0;
   flex-wrap: wrap;
-  border-style: solid;
-  border-color: black;
   align-items: center;
+  border-style: double;
+  border-color: black;
+  border-radius: 1rem;
 `;
 
 export default ChainList;
