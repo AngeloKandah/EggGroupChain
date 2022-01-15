@@ -7,8 +7,6 @@ import {
   EggGroupContainer,
   GenerationContainer,
   ChainContainer,
-  EggRoutesContainer,
-  SidebarContainer,
 } from './styles';
 import { Sidebar } from './components/sidebar';
 import { eggGroups, generations } from './lib/common.js';
@@ -29,19 +27,13 @@ function App() {
         <Dropdown state={setEggGroup2} listOfValues={eggGroups} />
       </EggGroupContainer>
       <ChainContainer id='chainContainer'>
-        <SidebarContainer id='eggGroup1'>
-          <Sidebar group={startEggGroup} generation={generation} />
-        </SidebarContainer>
-        <EggRoutesContainer id='eggRoutes'>
-          <EggChain
-            startEggGroup={startEggGroup}
-            finalEggGroup={finalEggGroup}
-            generation={generation}
-          />
-        </EggRoutesContainer>
-        <SidebarContainer id='eggGroup2'>
-          <Sidebar group={finalEggGroup} generation={generation} />
-        </SidebarContainer>
+        <Sidebar group={startEggGroup} generation={generation} />
+        <EggChain
+          startEggGroup={startEggGroup}
+          finalEggGroup={finalEggGroup}
+          generation={generation}
+        />
+        <Sidebar group={finalEggGroup} generation={generation} />
       </ChainContainer>
     </div>
   );

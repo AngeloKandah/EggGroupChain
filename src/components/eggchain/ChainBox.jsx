@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getPokemonFromBothGroups } from '../../lib/chainLogic.js';
 import { v4 as uuidv4 } from 'uuid';
-import { ChainListItem } from '../../styles';
+import { ChainList, ChainListItem } from '../../styles';
 import { PokeFigure } from '../figure'
 
 function ChainBox({ group1Index, group2Index, generationIndex }) {
@@ -19,13 +19,13 @@ function ChainBox({ group1Index, group2Index, generationIndex }) {
   }, [group1Index, group2Index, generationIndex]);
 
   return (
-    <>
+    <ChainList id="chainList" key={uuidv4()}>
       {pokemon.map((name) => (
         <ChainListItem key={uuidv4()}>
-          <PokeFigure name={name}></PokeFigure>
+          <PokeFigure name={name}/>
         </ChainListItem>
       ))}
-    </>
+    </ChainList>
   );
 }
 
