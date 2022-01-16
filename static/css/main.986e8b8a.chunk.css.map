@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,UAEE,wBACF,CAEA,wBACE,yBACF","file":"main.986e8b8a.chunk.css","sourcesContent":["html,\r\nbody {\r\n  background-color: #F0EAD6;\r\n}\r\n\r\nfigcaption:first-letter{\r\n  text-transform: capitalize;\r\n}\r\n"]}
