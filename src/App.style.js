@@ -6,4 +6,10 @@ const EggGroupContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
 `;
 
-export default EggGroupContainer;
+const GenerationContainer = styled.div`
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+`;
+
+export { EggGroupContainer, GenerationContainer };

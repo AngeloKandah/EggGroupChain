@@ -1,4 +1,4 @@
-import { PokeImg, StyledFigure } from '../../styles';
+import { PokeImg, StyledFigure } from './PokeFigure.style.js';
 
 function PokeFigure({ name }) {
   return (

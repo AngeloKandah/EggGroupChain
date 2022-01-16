@@ -1,10 +1,10 @@
-import { H1 } from '../../styles';
+import { StyledHeader } from './Header.style.js';
 
 function Header({ title }) {
   return (
-    <header>
-      <H1>{title}</H1>
-    </header>
+    <StyledHeader>
+      <h1>{title}</h1>
+    </StyledHeader>
   );
 }
 

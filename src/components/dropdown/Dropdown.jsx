@@ -1,29 +1,18 @@
-import { Select } from '../../styles';
+import { StyledSelect } from './Dropdown.style.js';
 
-function Dropdown({ state, listOfValues }) {
+function Dropdown({ state, dropdownEntries }) {
   return (
-    <Select
-      onChange={(e) =>
-        e.target.length > 2
-          ? state(e.target.selectedIndex - 1)
-          : state(e.target.selectedIndex)
-      }
+    <StyledSelect
+      onChange={(e) => state(e.target.selectedIndex)}
       name='selectEggGroup'
       id='selectEggGroup'
     >
-      {listOfValues.length === 15 ? (
-        <option value={'Select Group'} key={'Select Group'}>
-          Select Group
-        </option>
-      ) : (
-        ''
-      )}
-      {listOfValues.map((group) => (
+      {dropdownEntries.map((group) => (
         <option value={group} key={group}>
           {group}
         </option>
       ))}
-    </Select>
+    </StyledSelect>
   );
 }
 

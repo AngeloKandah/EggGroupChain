@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const SoloList = styled.ul`
+  font-family: monospace;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -19,4 +20,12 @@ const SoloList = styled.ul`
   }
 `;
 
-export default SoloList;
+const SoloListItem = styled.li`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem;
+`;
+
+export { SoloList, SoloListItem };

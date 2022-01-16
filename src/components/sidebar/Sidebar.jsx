@@ -1,15 +1,12 @@
-import { SidebarContainer, SoloList } from '../../styles';
 import { SoloBox } from '../eggchain';
+import { StyledSidebar } from './Sidebar.style.js';
 
-//FIx this shit to not return empty string
 function Sidebar({ group, generation }) {
   if (group > -1) {
     return (
-      <SidebarContainer>
-        <SoloList>
-          <SoloBox groupIndex={group} generationIndex={generation} />
-        </SoloList>
-      </SidebarContainer>
+      <StyledSidebar>
+        <SoloBox groupIndex={group} generationIndex={generation} />
+      </StyledSidebar>
     );
   }
   return null;

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getPokemonFromGroup } from '../../lib/chainLogic';
 import { v4 as uuidv4 } from 'uuid';
-import { SoloListItem } from '../../styles';
-import { PokeFigure } from '../figure'
+import { PokeFigure } from '../figure';
+import { SoloListItem, SoloList } from './SoloBox.style';
 
 function SoloBox({ groupIndex, generationIndex }) {
   const [pokemon, setPokemon] = useState([]);
@@ -18,13 +18,13 @@ function SoloBox({ groupIndex, generationIndex }) {
   }, [groupIndex, generationIndex]);
 
   return (
-    <>
+    <SoloList>
       {pokemon.map(({ name }) => (
         <SoloListItem key={uuidv4()}>
           <PokeFigure name={name}></PokeFigure>
         </SoloListItem>
       ))}
-    </>
+    </SoloList>
   );
 }
 
