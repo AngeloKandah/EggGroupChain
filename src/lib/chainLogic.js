@@ -72,13 +72,6 @@ function getConnectedNodes(group1Index, group2Index, gen) {
   return { group1Paths, group2Paths };
 }
 
-/* console.log(getPaths(0, 14, 0));
-console.log(getPaths(0, 1, 0));
-console.log(getPaths(2, 4, 0));
-console.log(getPaths(9, 13, 0)); */
-
-//console.log(getPokemonFromBothGroups(0, 1, 1));
-
 export {
   getPokemonFromGroup,
   getPokemonFromBothGroups,

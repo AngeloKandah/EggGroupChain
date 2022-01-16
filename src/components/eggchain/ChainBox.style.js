@@ -11,6 +11,7 @@ const ChainList = styled.ul`
   border-style: double;
   border-color: black;
   border-radius: 1rem;
+  margin: 0 0.25rem;
 `;
 
 const ChainListItem = styled.li`

@@ -4,9 +4,9 @@ const StyledSidebar = styled.div`
   display: block;
   align-items: center;
   position: sticky;
-  top: 0;
-  height: 100vh;
+  top: 2.5vh;
   align-self: start;
+  margin-bottom: 2.5vh;
 `;
 
 export { StyledSidebar };

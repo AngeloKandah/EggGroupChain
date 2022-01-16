@@ -9,7 +9,6 @@ const SoloList = styled.ul`
   padding: 0;
   margin: 0;
   max-height: 95vh;
-  max-width: 25vw;
   overflow-x: auto;
   &::-webkit-scrollbar {
     height: 0.5rem;
@@ -25,7 +24,6 @@ const SoloListItem = styled.li`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  font-size: 0.75rem;
 `;
 
 export { SoloList, SoloListItem };

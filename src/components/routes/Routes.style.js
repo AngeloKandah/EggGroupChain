@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledRoutes = styled.div`
-  margin: 0 5vw;
+  margin: 0 2.5vw;
 `;
 
 const RouteNumber = styled.div`
