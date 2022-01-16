@@ -8,7 +8,8 @@ function Dropdown({ state, dropdownEntries }) {
       id='selectEggGroup'
     >
       {dropdownEntries.map((group) => (
-        <option value={group} key={group}>
+        <option value={group}
+          key={group}>
           {group}
         </option>
       ))}

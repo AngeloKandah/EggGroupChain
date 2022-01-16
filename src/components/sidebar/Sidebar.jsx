@@ -5,7 +5,8 @@ function Sidebar({ group, generation }) {
   if (group > -1) {
     return (
       <StyledSidebar>
-        <SoloBox groupIndex={group} generationIndex={generation} />
+        <SoloBox groupIndex={group}
+          generationIndex={generation} />
       </StyledSidebar>
     );
   }

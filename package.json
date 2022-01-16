@@ -2,12 +2,12 @@
   "name": "egg",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://AngeloKandah.github.io/EggGroupChain",
   "dependencies": {
     "@craco/craco": "^6.4.2",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "eslint": "^7.32.0",
     "js-graph-algorithms": "^1.0.18",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,7 +21,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "lint": "npx eslint src/"
   },
   "eslintConfig": {
     "extends": [
@@ -43,7 +46,17 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.8",
-    "postcss": "^7.0.39"
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^3.2.3",
+    "postcss": "^7.0.39",
+    "prettier": "^2.5.1"
   },
   "resolutions": {
     "styled-components": "^5"
