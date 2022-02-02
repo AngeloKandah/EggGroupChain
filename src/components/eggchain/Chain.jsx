@@ -1,5 +1,5 @@
 import { StyledChain } from './Chain.style.js';
-import { EggChain } from './';
+import { EggChain } from '.';
 import { Sidebar } from '../sidebar';
 
 function Chain({ startEggGroup, finalEggGroup, generation }) {

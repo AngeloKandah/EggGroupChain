@@ -10,7 +10,7 @@ async function getPokemonFromGroup(groupIndex, generationIndex) {
     return pokemonList;
   }
   const noLongerGenIVIndex = pokemonList.findIndex(
-    (pokemon) => pokemon.id > 493
+    (pokemon) => pokemon.id > 493,
   );
   const genIVList = pokemonList.slice(0, noLongerGenIVIndex);
   return genIVList;
@@ -30,20 +30,20 @@ function getPaths(group1Index, group2Index, generationIndex) {
   const gen = matrices[generationIndex];
   if (gen[group1Index][group2Index] === 1) {
     return [[group1Index, group2Index]];
-  } else if (gen[group1Index][group2Index] === 2) {
+  } if (gen[group1Index][group2Index] === 2) {
     const { group1Paths, group2Paths } = getConnectedNodes(
       group1Index,
       group2Index,
-      gen
+      gen,
     );
     return group1Paths
       .filter((node) => group2Paths.includes(node))
       .map((node) => [group1Index, node, group2Index]);
-  } else if (gen[group1Index][group2Index] === 3) {
+  } if (gen[group1Index][group2Index] === 3) {
     const { group1Paths, group2Paths } = getConnectedNodes(
       group1Index,
       group2Index,
-      gen
+      gen,
     );
     const fourNodeRoutes = [];
     group1Paths.forEach((node1) => {

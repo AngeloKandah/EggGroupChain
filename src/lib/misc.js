@@ -1,4 +1,4 @@
-//This was all used to create the GenIV/VIII.json copy paste
+// This was all used to create the GenIV/VIII.json copy paste
 /* const visitedEggGroups = {
     Monster: {},
     Water1: {},
@@ -77,7 +77,7 @@ function convertJsonToUrl(egg) {
   [   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0], //Und
 ]; */
 
-//This was used to create the 2D arrays.
+// This was used to create the 2D arrays.
 /* function idk(genGraphs) {
   let g = [];
   for (let i = 0; i < eggGroups.length; i++) {
@@ -95,7 +95,7 @@ function convertJsonToUrl(egg) {
   return g;
 } */
 
-//GenVIII
+// GenVIII
 /* [0, 1, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 0, 1, 0],
 [1, 0, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 0, 1, 0],
 [2, 1, 0, 2, 2, 1, 1, 1, 1, 1, 2, 2, 0, 2, 0],
@@ -112,7 +112,7 @@ function convertJsonToUrl(egg) {
 [1, 1, 2, 1, 1, 2, 2, 2, 2, 3, 2, 1, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] */
 
-//GenIV
+// GenIV
 /* [0, 1, 2, 2, 1, 2, 1, 2, 2, 3, 2, 2, 0, 1, 0],
 [1, 0, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 0, 1, 0],
 [2, 1, 0, 2, 2, 2, 1, 1, 1, 3, 2, 2, 0, 2, 0],
@@ -129,7 +129,7 @@ function convertJsonToUrl(egg) {
 [1, 1, 2, 1, 1, 2, 2, 2, 2, 3, 2, 1, 0, 0, 0],
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0] */
 
-//const jsgraphs = require('js-graph-algorithms');
+// const jsgraphs = require('js-graph-algorithms');
 
 /* function getChain(startEggGroup, finalEggGroup, genGraphs) {
   const routes = new jsgraphs.Dijkstra(genGraphs, startEggGroup);

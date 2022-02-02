@@ -4,8 +4,6 @@ function Dropdown({ state, dropdownEntries }) {
   return (
     <StyledSelect
       onChange={(e) => state(e.target.selectedIndex)}
-      name='selectEggGroup'
-      id='selectEggGroup'
     >
       {dropdownEntries.map((group) => (
         <option value={group} key={group}>

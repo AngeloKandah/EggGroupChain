@@ -12,12 +12,12 @@ function App() {
   const [generation, setGeneration] = useState(0);
 
   return (
-    <div className='App'>
-      <Header title='Egg Chain Calculator' />
-      <GenerationContainer id='generationContainer'>
+    <div className="App">
+      <Header title="Egg Chain Calculator" />
+      <GenerationContainer id="generationContainer">
         <Dropdown state={setGeneration} dropdownEntries={generations} />
       </GenerationContainer>
-      <EggGroupContainer id='eggGroupContainer'>
+      <EggGroupContainer id="eggGroupContainer">
         <Dropdown state={setStartEggGroup} dropdownEntries={eggGroups} />
         <Dropdown state={setFinalEggGroup} dropdownEntries={eggGroups} />
       </EggGroupContainer>
@@ -25,7 +25,7 @@ function App() {
         startEggGroup={startEggGroup}
         finalEggGroup={finalEggGroup}
         generation={generation}
-        id='chain'
+        id="chain"
       />
     </div>
   );
