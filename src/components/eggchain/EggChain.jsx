@@ -5,7 +5,7 @@ import { StyledEggRoutes } from './EggChain.style.js';
 function EggChain({ startEggGroup, finalEggGroup, generation }) {
   const allPaths = getPaths(startEggGroup, finalEggGroup, generation);
   return (
-    <StyledEggRoutes id='eggRoutes'>
+    <StyledEggRoutes id='eggRoutes' data-cy={'eggRoutes'}>
       {allPaths.map((route, routeNumber) => {
         return (
           <Routes

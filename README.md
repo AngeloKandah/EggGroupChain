@@ -22,4 +22,4 @@ This project utilizes [React](https://create-react-app.dev/) and [Styled Compone
 
 The sprites and Pokémon are © Nintendo/Creatures Inc./GAME FREAK Inc.
 
-Everything else is governed by the MIT License.\
+Everything else is governed by the MIT License.

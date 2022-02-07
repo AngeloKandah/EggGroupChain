@@ -1,5 +1,3 @@
-const { PokeFigure } = require('../../../src/components/figure');
-
 describe('Base Cases for rendering', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');
@@ -8,8 +6,10 @@ describe('Base Cases for rendering', () => {
     cy.get('h1').contains('Egg Chain Calculator');
   });
   it('renders all dropdowns', () => {
-    cy.get('[id=generationContainer]').children().should('have.length', 1);
-    cy.get('[id=eggGroupContainer]').children().should('have.length', 2);
+    cy.get('[data-cy=dropdownGeneration]').should('exist');
+    cy.get('[data-cy=dropdownEggGroup]')
+      .should('exist')
+      .should('have.length', 2);
   });
 });
 
@@ -18,14 +18,13 @@ describe('Generation Dropdown', () => {
     cy.visit('http://localhost:3000');
   });
   it('starts on GenVIII', () => {
-    cy.get('[id=generationContainer]').children().first().contains('GenVIII');
-  });
-  it('has two options', () => {
-    cy.get('[id=generationContainer]')
+    cy.get('[data-cy=dropdownGeneration]')
       .children()
       .first()
-      .children()
-      .should('have.length', 2);
+      .contains('GenVIII');
+  });
+  it('has two options', () => {
+    cy.get('[data-cy=dropdownGeneration]').children().should('have.length', 2);
   });
 });
 
@@ -34,17 +33,16 @@ describe('Start Egg Group Dropdown', () => {
     cy.visit('http://localhost:3000');
   });
   it('has all egg group types', () => {
-    cy.get('[id=eggGroupContainer]')
-      .children()
+    cy.get('[data-cy=dropdownEggGroup]')
       .first()
       .children()
       .should('have.length', 15);
   });
   it('starts on Monster', () => {
-    cy.get('[id=eggGroupContainer]').children().first().contains('Monster');
+    cy.get('[data-cy=dropdownEggGroup]').first().contains('Monster');
   });
   it('can be clicked and changed to Field', () => {
-    cy.get('[id=eggGroupContainer]').children().first().select('Field');
+    cy.get('[data-cy=dropdownEggGroup]').first().select('Field');
   });
 });
 
@@ -53,16 +51,28 @@ describe('Final Egg Group Dropdown', () => {
     cy.visit('http://localhost:3000');
   });
   it('has all egg group types', () => {
-    cy.get('[id=eggGroupContainer]')
-      .children()
+    cy.get('[data-cy=dropdownEggGroup]')
       .last()
       .children()
       .should('have.length', 15);
   });
   it('starts on Monster', () => {
-    cy.get('[id=eggGroupContainer]').children().last().contains('Monster');
+    cy.get('[data-cy=dropdownEggGroup]').last().contains('Monster');
   });
   it('can be clicked and changed to Field', () => {
-    cy.get('[id=eggGroupContainer]').children().last().select('Field');
+    cy.get('[data-cy=dropdownEggGroup]').last().select('Field');
+  });
+});
+
+describe('Routes', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000');
+  });
+  it('has two routes for Bug Monster', () => {
+    cy.get('[data-cy=dropdownEggGroup]').first().select('Bug');
+    cy.get('[data-cy=dropdownEggGroup]').last().select('Monster');
+    cy.get('[data-cy=eggRoutes]').children().should('have.length', 2);
+    cy.get('[data-cy=route1]').should('exist');
+    cy.get('[data-cy=route2]').should('exist');
   });
 });
