@@ -75,4 +75,11 @@ describe('Routes', () => {
     cy.get('[data-cy=route1]').should('exist');
     cy.get('[data-cy=route2]').should('exist');
   });
+  it('has eight routes for Mineral Dragon', () => {
+    cy.get('[data-cy=dropdownEggGroup]').first().select('Mineral');
+    cy.get('[data-cy=dropdownEggGroup]').last().select('Dragon');
+    cy.get('[data-cy=eggRoutes]').children().should('have.length', 8);
+    cy.get('[data-cy=route1]').should('exist');
+    cy.get('[data-cy=route8]').should('exist');
+  })
 });

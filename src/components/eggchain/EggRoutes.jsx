@@ -1,8 +1,8 @@
 import { getPaths } from '../../lib/chainLogic.js';
 import { Routes } from '../routes';
-import { StyledEggRoutes } from './EggChain.style.js';
+import { StyledEggRoutes } from './EggRoutes.style.js';
 
-function EggChain({ startEggGroup, finalEggGroup, generation }) {
+function EggRoutes({ startEggGroup, finalEggGroup, generation }) {
   const allPaths = getPaths(startEggGroup, finalEggGroup, generation);
   return (
     <StyledEggRoutes id='eggRoutes' data-cy={'eggRoutes'}>
@@ -20,4 +20,4 @@ function EggChain({ startEggGroup, finalEggGroup, generation }) {
   );
 }
 
-export default EggChain;
+export default EggRoutes;

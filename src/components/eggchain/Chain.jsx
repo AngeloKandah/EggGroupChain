@@ -1,12 +1,12 @@
 import { StyledChain } from './Chain.style.js';
-import { EggChain } from '.';
+import { EggRoutes } from '.';
 import { Sidebar } from '../sidebar';
 
 function Chain({ startEggGroup, finalEggGroup, generation }) {
   return (
     <StyledChain>
       <Sidebar group={startEggGroup} generation={generation} dataVal={'left'}/>
-      <EggChain
+      <EggRoutes
         startEggGroup={startEggGroup}
         finalEggGroup={finalEggGroup}
         generation={generation}

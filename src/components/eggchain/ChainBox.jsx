@@ -17,7 +17,7 @@ function ChainBox({ group1Index, group2Index, generationIndex }) {
     getPoke();
   }, [group1Index, group2Index, generationIndex]);
   return (
-    <ChainList id='chainList'>
+    <ChainList id='chainList' data-cy={'chainBox'}>
       {pokemon.map((name) => (
         <ChainListItem key={name}>
           <PokeFigure name={name} />

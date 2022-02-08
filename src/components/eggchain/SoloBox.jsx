@@ -17,7 +17,7 @@ function SoloBox({ groupIndex, generationIndex }) {
   }, [groupIndex, generationIndex]);
 
   return (
-    <SoloList data-cy={`sidebar-${groupIndex}`}>
+    <SoloList data-cy={`group${groupIndex}`}>
       {pokemon.map(({ name }) => (
         <SoloListItem key={name}>
           <PokeFigure name={name}></PokeFigure>
