@@ -1,4 +1,5 @@
 {
+    "screenshots": false,
     "video": false,
     "component":{
         "testFiles": "**/*.test.{js,ts,jsx,tsx}",

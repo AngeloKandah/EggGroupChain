@@ -80,9 +80,22 @@ describe('SoloBox', () => {
 });
 
 describe('ChainBox', () => {
-  it('renders the ChainBox', () => {
-    mount(<ChainBox group1Index={0} group2Index={1} generationIndex={0} />);
-    cy.get('[data-cy=chainBox]').should('exist');
+  const testCases = [
+    [0, 1, 0, 'exist'],
+    [11, 13, 0, 'exist'],
+    [4, 3, 0, 'exist'],
+  ];
+  testCases.forEach(([group1Index, group2Index, generationIndex, result]) => {
+    it(`handles ${group1Index} ${group2Index} ${generationIndex}`, () => {
+      mount(
+        <ChainBox
+          group1Index={group1Index}
+          group2Index={group2Index}
+          generationIndex={generationIndex}
+        />
+      );
+      cy.get('[data-cy=chainBox]').should(result);
+    });
   });
 });
 
