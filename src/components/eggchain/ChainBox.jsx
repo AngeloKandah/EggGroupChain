@@ -15,6 +15,7 @@ function ChainBox({ group1Index, group2Index, generationIndex }) {
       setPokemon(pokemonList);
     }
     getPoke();
+    return () => setPokemon([]);
   }, [group1Index, group2Index, generationIndex]);
   return (
     <ChainList id='chainList' data-cy={'chainBox'}>

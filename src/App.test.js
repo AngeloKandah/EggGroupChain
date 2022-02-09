@@ -42,32 +42,40 @@ describe('Dropdown', () => {
 });
 
 describe('EggRoutes', () => {
-  it('renders the component', () => {
-    mount(<EggRoutes startEggGroup={0} finalEggGroup={0} generation={0} />);
-    cy.get('[data-cy=eggRoutes]').should('exist');
-  });
-  it('handles two different eggGroups', () => {
-    mount(<EggRoutes startEggGroup={1} finalEggGroup={2} generation={0} />);
-    cy.get('[data-cy=eggRoutes').should('exist');
-  });
-  it('handles different generation', () => {
-    mount(<EggRoutes startEggGroup={0} finalEggGroup={0} generation={1} />);
-    cy.get('[data-cy=eggRoutes').should('exist');
-  });
-  it('handles two different eggGroups and different generation', () => {
-    mount(<EggRoutes startEggGroup={4} finalEggGroup={11} generation={1} />);
-    cy.get('[data-cy=eggRoutes').should('exist');
+  const testCases = [
+    [0, 0, 0, 'exist'],
+    [1, 2, 0, 'exist'],
+    [0, 0, 1, 'exist'],
+    [4, 11, 1, 'exist'],
+  ];
+  testCases.forEach(([startEggGroup, finalEggGroup, generation, result]) => {
+    it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
+      mount(
+        <EggRoutes
+          startEggGroup={startEggGroup}
+          finalEggGroup={finalEggGroup}
+          generation={generation}
+        />
+      );
+      cy.get('[data-cy=eggRoutes]').should(result);
+    });
   });
 });
 
 describe('SoloBox', () => {
-  it('renders the SoloBox', () => {
-    mount(<SoloBox groupIndex={0} generationIndex={0} />);
-    cy.get('[data-cy=group0]').should('exist');
-  });
-  it('handles a different groupIndex and different generationIndex', () => {
-    mount(<SoloBox groupIndex={11} generationIndex={1} />);
-    cy.get('[data-cy=group11]').should('exist');
+  const testCases = [
+    [0, 0, 'exist'],
+    [11, 1, 'exist'],
+    [0, 1, 'exist'],
+    [5, 0, 'exist'],
+  ];
+  testCases.forEach(([groupIndex, generationIndex, result]) => {
+    it(`handles ${groupIndex} ${generationIndex}`, () => {
+      mount(
+        <SoloBox groupIndex={groupIndex} generationIndex={generationIndex} />
+      );
+      cy.get(`[data-cy=group${groupIndex}]`).should(result);
+    });
   });
 });
 
@@ -79,16 +87,42 @@ describe('ChainBox', () => {
 });
 
 describe('Chain', () => {
-  it('renders two SoloBox and EggRoutes', () => {
-    mount(<Chain startEggGroup={0} finalEggGroup={0} generation={0} />);
-    cy.get('[data-cy=leftSidebar]').should('exist');
-    cy.get('[data-cy=rightSidebar]').should('exist');
-    cy.get('[data-cy=eggRoutes]').should('exist');
+  const positives = [
+    [0, 0, 0, 'exist'],
+    [5, 13, 0, 'exist'],
+    [0, 0, 1, 'exist'],
+    [3, 9, 1, 'exist'],
+  ];
+  positives.forEach(([startEggGroup, finalEggGroup, generation, result]) => {
+    it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
+      mount(
+        <Chain
+          startEggGroup={startEggGroup}
+          finalEggGroup={finalEggGroup}
+          generation={generation}
+        />
+      );
+      cy.get('[data-cy=leftSidebar]').should(result);
+      cy.get('[data-cy=rightSidebar]').should(result);
+      cy.get('[data-cy=eggRoutes]').should(result);
+    });
   });
-  it('renders two different SoloBox and EggRoutes', () => {
-    mount(<Chain startEggGroup={5} finalEggGroup={13} generation={0} />);
-    cy.get('[data-cy=leftSidebar]').should('exist');
-    cy.get('[data-cy=rightSidebar]').should('exist');
-    cy.get('[data-cy=eggRoutes]').should('exist');
-  });
+  /* const negatives = [
+    [0, -1, 0],
+    [-1, 0, 0],
+    [-1, -2, -1],
+  ]; */
+  /* negatives.forEach(([startEggGroup, finalEggGroup, generation]) => {
+    it(`throws ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
+      expect(() =>
+        mount(
+          <Chain
+            startEggGroup={startEggGroup}
+            finalEggGroup={finalEggGroup}
+            generation={generation}
+          />
+        )
+      ).to.throw;
+    });
+  }); */
 });

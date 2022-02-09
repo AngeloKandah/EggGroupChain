@@ -14,6 +14,7 @@ function SoloBox({ groupIndex, generationIndex }) {
       setPokemon(pokemonList);
     }
     getPoke();
+    return () => setPokemon([]);
   }, [groupIndex, generationIndex]);
 
   return (
