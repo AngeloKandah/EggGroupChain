@@ -3,23 +3,33 @@ import { eggGroups, generations, matrices } from './common.js';
 async function getPokemonFromGroup(groupIndex, generationIndex) {
   const eggGroup = eggGroups[groupIndex];
   const gen = generations[generationIndex];
-  const {
-    pokemon_species: pokemonList,
-  } = await import(`../data/${eggGroup}.json`);
+  if (!eggGroup || !gen) {
+    return [];
+  }
+  const { pokemon_species: pokemonList } = await import(
+    `../data/${eggGroup}.json`
+  );
   if (gen !== 'GenIV') {
     return pokemonList;
   }
   const noLongerGenIVIndex = pokemonList.findIndex(
-    (pokemon) => pokemon.id > 493,
+    (pokemon) => pokemon.id > 493
   );
   const genIVList = pokemonList.slice(0, noLongerGenIVIndex);
   return genIVList;
 }
 
-async function getPokemonFromBothGroups(group1Index, group2Index, generationIndex) {
+async function getPokemonFromBothGroups(
+  group1Index,
+  group2Index,
+  generationIndex
+) {
   const eggGroup1 = eggGroups[group1Index];
   const eggGroup2 = eggGroups[group2Index];
   const gen = generations[generationIndex];
+  if (!eggGroup1 || !eggGroup2 || !gen) {
+    return [];
+  }
   const {
     [eggGroup1]: { [eggGroup2]: pokemonList },
   } = await import(`../data/${gen}.json`);
@@ -28,22 +38,28 @@ async function getPokemonFromBothGroups(group1Index, group2Index, generationInde
 
 function getPaths(group1Index, group2Index, generationIndex) {
   const gen = matrices[generationIndex];
-  if (gen[group1Index][group2Index] === 1) {
+  if (!gen || !gen[group1Index] || !gen[group1Index][group2Index]) {
+    return [[]];
+  }
+  const numberOfNodes = gen[group1Index][group2Index];
+  if (numberOfNodes === 1) {
     return [[group1Index, group2Index]];
-  } if (gen[group1Index][group2Index] === 2) {
+  }
+  if (numberOfNodes === 2) {
     const { group1Paths, group2Paths } = getConnectedNodes(
       group1Index,
       group2Index,
-      gen,
+      gen
     );
     return group1Paths
       .filter((node) => group2Paths.includes(node))
       .map((node) => [group1Index, node, group2Index]);
-  } if (gen[group1Index][group2Index] === 3) {
+  }
+  if (numberOfNodes === 3) {
     const { group1Paths, group2Paths } = getConnectedNodes(
       group1Index,
       group2Index,
-      gen,
+      gen
     );
     const fourNodeRoutes = [];
     group1Paths.forEach((node1) => {
@@ -72,8 +88,4 @@ function getConnectedNodes(group1Index, group2Index, gen) {
   return { group1Paths, group2Paths };
 }
 
-export {
-  getPokemonFromGroup,
-  getPokemonFromBothGroups,
-  getPaths,
-};
+export { getPokemonFromGroup, getPokemonFromBothGroups, getPaths };

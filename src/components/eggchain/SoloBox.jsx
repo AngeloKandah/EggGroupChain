@@ -16,7 +16,6 @@ function SoloBox({ groupIndex, generationIndex }) {
     getPoke();
     return () => setPokemon([]);
   }, [groupIndex, generationIndex]);
-
   return (
     <SoloList data-cy={`group${groupIndex}`}>
       {pokemon.map(({ name }) => (

@@ -47,6 +47,7 @@ describe('EggRoutes', () => {
     [1, 2, 0, 'exist'],
     [0, 0, 1, 'exist'],
     [4, 11, 1, 'exist'],
+    [16, -1, 0, 'exist'],
   ];
   testCases.forEach(([startEggGroup, finalEggGroup, generation, result]) => {
     it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
@@ -100,42 +101,63 @@ describe('ChainBox', () => {
 });
 
 describe('Chain', () => {
-  const positives = [
-    [0, 0, 0, 'exist'],
-    [5, 13, 0, 'exist'],
-    [0, 0, 1, 'exist'],
-    [3, 9, 1, 'exist'],
-  ];
-  positives.forEach(([startEggGroup, finalEggGroup, generation, result]) => {
-    it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
-      mount(
-        <Chain
-          startEggGroup={startEggGroup}
-          finalEggGroup={finalEggGroup}
-          generation={generation}
-        />
-      );
-      cy.get('[data-cy=leftSidebar]').should(result);
-      cy.get('[data-cy=rightSidebar]').should(result);
-      cy.get('[data-cy=eggRoutes]').should(result);
-    });
-  });
-  /* const negatives = [
-    [0, -1, 0],
-    [-1, 0, 0],
-    [-1, -2, -1],
-  ]; */
-  /* negatives.forEach(([startEggGroup, finalEggGroup, generation]) => {
-    it(`throws ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
-      expect(() =>
+  describe('Within bounds', () => {
+    const testCases = [
+      [0, 0, 0, 'exist'],
+      [5, 13, 0, 'exist'],
+      [0, 0, 1, 'exist'],
+      [3, 9, 1, 'exist'],
+    ];
+    testCases.forEach(([startEggGroup, finalEggGroup, generation, result]) => {
+      it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
         mount(
           <Chain
             startEggGroup={startEggGroup}
             finalEggGroup={finalEggGroup}
             generation={generation}
           />
-        )
-      ).to.throw;
+        );
+        cy.get('[data-cy=leftSidebar]').should(result);
+        cy.get('[data-cy=rightSidebar]').should(result);
+        cy.get('[data-cy=eggRoutes]').should(result);
+      });
     });
-  }); */
+  });
+  describe('Out of bounds', () => {
+    const testCases = [
+      [-1, 0, 0],
+      [0, -1, 0],
+      [0, 0, -1],
+      [0, 16, 9],
+      [-21, 5, -900],
+    ];
+    testCases.forEach(([startEggGroup, finalEggGroup, generation]) => {
+      it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
+        mount(
+          <Chain
+            startEggGroup={startEggGroup}
+            finalEggGroup={finalEggGroup}
+            generation={generation}
+          />
+        );
+      });
+    });
+  });
+  describe('With strings', () => {
+    const testCases = [
+      ['one', 'zero', 'two'],
+      [, '', 'test!'],
+    ];
+    testCases.forEach(([startEggGroup, finalEggGroup, generation]) => {
+      it(`handles ${startEggGroup} ${finalEggGroup} ${generation}`, () => {
+        mount(
+          <Chain
+            startEggGroup={startEggGroup}
+            finalEggGroup={finalEggGroup}
+            generation={generation}
+          />
+        );
+      });
+    });
+  });
 });
