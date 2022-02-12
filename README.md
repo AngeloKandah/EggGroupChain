@@ -14,6 +14,14 @@ This purpose of this was for when I was breeding Pokémon and wanted to have com
 3. Start the project with `npm start`.
 4. Once the project has started, it will open a tab on `http://localhost:3000`.
 
+## Testing
+
+For testing I use [Cypress](https://www.cypress.io/), however I use WSL and had to follow these [instructions](https://docs.cypress.io/guides/getting-started/installing-cypress#Windows-Subsystem-for-Linux). 
+
+You can use `npm run cy-test` to run the component tests located in `src/App.test.js`.
+
+You can use `npm run cy-e2e` to run the end to end tests located in `cypress/integration/react-tests/react-spec.js`. For the end to end tests the app must be running on `http://localhost:3000`.
+
 ## Dependencies
 
 This project utilizes [React](https://create-react-app.dev/) and [Styled Components](https://styled-components.com/).
